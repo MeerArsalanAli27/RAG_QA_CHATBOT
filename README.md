@@ -31,29 +31,26 @@ bash
 Copy
 Edit
 
-## 🚀 Installation & Setup
+# 🚀 Installation & Setup
 
-### 1️⃣ Clone the Repository
-
-
+## 1️⃣ Clone the Repository
 git clone https://github.com/your-username/RAG-PDF-QA.git
-cd RAG-PDF-
-2️⃣ Create a Virtual Environment (Optional but Recommended)
-bash
-Copy
-Edit
+cd RAG-PDF-QA
+
+## 2️⃣ Create a Virtual Environment (Optional but Recommended)
+
+# On macOS/Linux
 python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate     # On Windows
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
+source venv/bin/activate  
+
+# On Windows
+python -m venv venv
+venv\Scripts\activate
+
+## 3️⃣ Install Dependencies
 pip install -r requirements.txt
-4️⃣ Run the Application
-bash
-Copy
-Edit
+
+## 4️⃣ Run the Application
 streamlit run app.py
 🛠️ How It Works
 Upload a PDF: Select and upload a PDF file through the Streamlit interface.
@@ -61,16 +58,17 @@ Process the PDF: The app extracts text, chunks it, and stores it in a FAISS vect
 Ask Questions: Enter your OpenAI API key and type your question related to the document.
 Receive AI Answers: The system retrieves the most relevant information from the PDF and generates an answer using GPT-4.
 🎨 User Interface
-Sidebar: Input OpenAI API key securely.
-Main Page:
+🔹 Sidebar
+Input OpenAI API key securely.
+🔹 Main Page
 Upload a PDF file.
 Process and store document embeddings.
 Input questions and receive AI-generated answers.
 🔑 API Key Setup
-To use the OpenAI API, you need an API key. Get it from OpenAI.
+To use the OpenAI API, you need an API key. You can get it from OpenAI.
 
 Enter the key in the sidebar input field.
-It is securely used in the session but not stored permanently.
+The key is securely used during the session but not stored permanently.
 📝 Example Usage
 plaintext
 Copy
@@ -88,4 +86,4 @@ Contributions are welcome! Feel free to submit a pull request or open an issue.
 📜 License
 This project is licensed under the MIT License. See LICENSE for details.
 
-🌟 If you find this project useful, consider giving it a star ⭐ on GitHub!
+🌟 If you find this project useful, consider giving it a ⭐ on GitHub!

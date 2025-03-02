@@ -1,0 +1,6 @@
+ streamlit
+ langchain 
+ openai 
+ pypdf 
+ faiss-cpu 
+ langchain_community

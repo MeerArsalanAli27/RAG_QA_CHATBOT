@@ -25,48 +25,32 @@ This project is a **RAG-based PDF Q&A System** built using **Streamlit, OpenAI A
 
 ## 📂 Project Structure
 
-📦 RAG-PDF-QA ┣ 📜 app.py # Main application file ┣ 📜 requirements.txt # Dependencies list ┣ 📜 README.md # Documentation (this file) ┣ 📦 data/ # Folder for storing FAISS index ┗ 📦 assets/ # Static assets (if needed)
+📦 RAG-PDF-QA ┣ 📜 main.py # Main application file ┣ 📜 requirements.txt # Dependencies list ┣ 📜 README.md # Documentation (this file) 
 
 bash
 Copy
 Edit
 
-🚀 Installation & Setup
-1️⃣ Clone the Repository
-To get started, clone the repository to your local machine using the following command:
+## 🚀 Installation & Setup
 
-bash
-Copy
-Edit
+### 1️⃣ Clone the Repository
+
+
 git clone https://github.com/your-username/RAG-PDF-QA.git
-cd RAG-PDF-QA
+cd RAG-PDF-
 2️⃣ Create a Virtual Environment (Optional but Recommended)
-It is recommended to create a virtual environment to manage dependencies separately.
-
-For macOS/Linux:
-
 bash
 Copy
 Edit
 python -m venv venv
-source venv/bin/activate
-For Windows:
-
-bash
-Copy
-Edit
-python -m venv venv
-venv\Scripts\activate
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On Windows
 3️⃣ Install Dependencies
-Once inside the virtual environment, install the required dependencies:
-
 bash
 Copy
 Edit
 pip install -r requirements.txt
 4️⃣ Run the Application
-Start the Streamlit application by running:
-
 bash
 Copy
 Edit
@@ -77,17 +61,16 @@ Process the PDF: The app extracts text, chunks it, and stores it in a FAISS vect
 Ask Questions: Enter your OpenAI API key and type your question related to the document.
 Receive AI Answers: The system retrieves the most relevant information from the PDF and generates an answer using GPT-4.
 🎨 User Interface
-🔹 Sidebar
-Enter your OpenAI API key securely.
-🔹 Main Page
+Sidebar: Input OpenAI API key securely.
+Main Page:
 Upload a PDF file.
 Process and store document embeddings.
 Input questions and receive AI-generated answers.
 🔑 API Key Setup
-To use the OpenAI API, you need an API key. You can get it from OpenAI.
+To use the OpenAI API, you need an API key. Get it from OpenAI.
 
 Enter the key in the sidebar input field.
-The key is securely used during the session but not stored permanently.
+It is securely used in the session but not stored permanently.
 📝 Example Usage
 plaintext
 Copy
@@ -101,3 +84,8 @@ AI: The document discusses...
  Persistent database storage for better scalability
 🤝 Contribution
 Contributions are welcome! Feel free to submit a pull request or open an issue.
+
+📜 License
+This project is licensed under the MIT License. See LICENSE for details.
+
+🌟 If you find this project useful, consider giving it a star ⭐ on GitHub!

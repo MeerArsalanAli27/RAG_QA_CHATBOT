@@ -2,30 +2,35 @@
 
 ## 📌 Overview
 
-This project is a **RAG-based PDF Q&A System** built using **Streamlit, OpenAI API, FAISS, and LangChain**. The application allows users to upload a **PDF file**, process it into a **vector database** (FAISS), and then interact with the document by asking **questions**. The system retrieves relevant content and generates AI-powered answers using OpenAI's GPT-4 model.
+This project is a **RAG-based PDF Q&A chatbot** built with Streamlit, LangChain, and FAISS. Upload one or more PDFs, then ask questions grounded in their contents. The app extracts text (with OCR for pages that have little extractable text), indexes document chunks for retrieval, and sends relevant context to the configured language model to generate answers.
 
 ## ✨ Features
 
-- 📂 **Upload PDF Files** and extract text for processing
-- 🔑 **Secure API Key Input** via Streamlit Sidebar
-- 🧠 **AI-Powered Q&A** using OpenAI GPT-4 and FAISS-based retrieval
-- 🔍 **Efficient Text Chunking** to enhance retrieval accuracy
-- 🚀 **Interactive and User-Friendly Interface** with Styled Chat UI
-- 💾 **Persistent Vector Database Storage** for efficient retrieval
+- 📂 **Upload multiple PDF files** and search them together
+- 🔎 **Extract PDF text with OCR fallback** for scanned or image-based pages
+- 🧠 **RAG-powered Q&A** using LangChain, FAISS retrieval, and a configurable model
+- 📄 **Source-aware context** with document and page metadata
+- 📘 **Introduction page** explaining the chatbot and its RAG workflow
 
 ## 🏗️ Tech Stack
 
 - **Python**: Primary language
 - **Streamlit**: Frontend UI
-- **OpenAI API**: Language model for answering queries
+- **OpenRouter API**: Chat and embedding model endpoint
 - **FAISS**: Vector store for fast similarity search
 - **LangChain**: Document processing and retrieval
 - **PyPDFLoader**: Extracting text from PDFs
-- **Pickle**: Storing and loading FAISS index
+- **RapidOCR / PDFium**: OCR for image-based PDF pages
 
 ## 📂 Project Structure
 
-📦 RAG-PDF-QA ┣ 📜 main.py # Main application file ┣ 📜 requirements.txt # Dependencies list ┣ 📜 README.md # Documentation (this file) 
+📦 RAG-PDF-QA
+┣ 📜 app.py # Multipage navigation entry point
+┣ 📂 app_pages
+┃ ┗ 📜 introduction.py # Chatbot introduction and RAG workflow
+┣ 📜 main.py # PDF chat workspace
+┣ 📜 requirements.txt # Dependencies list
+┗ 📜 README.md # Documentation
 
 bash
 Copy
@@ -53,22 +58,18 @@ pip install -r requirements.txt
 ## 4️⃣ Run the Application
 streamlit run app.py
 🛠️ How It Works
-Upload a PDF: Select and upload a PDF file through the Streamlit interface.
-Process the PDF: The app extracts text, chunks it, and stores it in a FAISS vector database.
-Ask Questions: Enter your OpenAI API key and type your question related to the document.
-Receive AI Answers: The system retrieves the most relevant information from the PDF and generates an answer using GPT-4.
+1. Upload one or more PDF files in the chat workspace.
+2. LangChain extracts page text and applies OCR when a page has little extractable text.
+3. Extracted text is split into overlapping chunks, embedded, and indexed in FAISS.
+4. For a question, the app retrieves the four most relevant chunks and provides them as context to the configured language model.
+5. The model answers from the supplied context and is instructed to say when the answer is not present.
 🎨 User Interface
-🔹 Sidebar
-Input OpenAI API key securely.
-🔹 Main Page
-Upload a PDF file.
-Process and store document embeddings.
-Input questions and receive AI-generated answers.
+🔹 Introduction
+Learn what the chatbot does and how its retrieval-augmented generation workflow works.
+🔹 PDF Chat
+Upload and process documents, then ask questions in the conversation.
 🔑 API Key Setup
-To use the OpenAI API, you need an API key. You can get it from OpenAI.
-
-Enter the key in the sidebar input field.
-The key is securely used during the session but not stored permanently.
+Configure `OPENROUTER_API_KEY` in the local `.env` file. The `.env` file is excluded from Git; never commit API keys.
 📝 Example Usage
 plaintext
 Copy

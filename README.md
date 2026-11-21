@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This project is a **RAG-based PDF Q&A chatbot** built with Streamlit, LangChain, and FAISS. Upload one or more PDFs, then ask questions grounded in their contents. The app extracts text (with OCR for pages that have little extractable text), indexes document chunks for retrieval, and sends relevant context to the configured language model to generate answers.
+**Ferrell Solutions** is a RAG-based PDF Q&A chatbot built with Streamlit, LangChain, and FAISS. Upload one or more PDFs, then ask questions grounded in their contents. The app extracts text (with OCR for pages that have little extractable text), indexes document chunks for retrieval, and sends relevant context to the configured language model to generate answers.
 
 ## ✨ Features
 

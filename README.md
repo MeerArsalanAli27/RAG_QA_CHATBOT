@@ -6,7 +6,7 @@ This project is a **RAG-based PDF Q&A chatbot** built with Streamlit, LangChain,
 
 ## ✨ Features
 
-- 📂 **Upload multiple PDF files** and search them together
+- 📂 **Upload up to 3 PDF files at a time** and search them together
 - 🔎 **Extract PDF text with OCR fallback** for scanned or image-based pages
 - 🧠 **RAG-powered Q&A** using LangChain, FAISS retrieval, and a configurable model
 - 📄 **Source-aware context** with document and page metadata
@@ -58,7 +58,7 @@ pip install -r requirements.txt
 ## 4️⃣ Run the Application
 streamlit run app.py
 🛠️ How It Works
-1. Upload one or more PDF files in the chat workspace.
+1. Upload up to 3 PDF files in the chat workspace. This limit helps keep retrieved context within the language model's context capacity.
 2. LangChain extracts page text and applies OCR when a page has little extractable text.
 3. Extracted text is split into overlapping chunks, embedded, and indexed in FAISS.
 4. For a question, the app retrieves the four most relevant chunks and provides them as context to the configured language model.

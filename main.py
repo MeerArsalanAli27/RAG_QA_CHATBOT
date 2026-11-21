@@ -534,7 +534,10 @@ left_column, chat_column = st.columns([1.05, 1.65], gap="large")
 with left_column:
     with st.container(border=True):
         st.subheader("Documents", icon=":material/description:")
-        st.caption("Upload PDFs, including scans.")
+        st.caption(
+            "Upload up to 3 PDFs at a time, including scans, to stay within "
+            "the model's context limit."
+        )
         uploaded_value = st.file_uploader(
             "Choose PDF files",
             type="pdf",
@@ -560,6 +563,11 @@ with left_column:
 
             pdf_count = len(pdf_details)
             st.caption(f"{pdf_count} PDF file(s) selected")
+            if pdf_count > 3:
+                st.error(
+                    "The context limit allows up to 3 PDFs at a time. "
+                    "Remove some files before processing."
+                )
             for name, pdf_data in pdf_details:
                 st.markdown(
                     f"- :material/description: **{name}** "
@@ -571,6 +579,7 @@ with left_column:
                 icon=":material/auto_awesome:",
                 type="primary",
                 width="stretch",
+                disabled=pdf_count > 3,
             ):
                 if not api_key:
                     st.error("Please configure an OpenRouter API key.")

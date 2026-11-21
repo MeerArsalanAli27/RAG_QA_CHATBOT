@@ -98,7 +98,9 @@ for start in range(0, len(steps), 3):
 with st.container(border=True):
     st.subheader("How this PDF chatbot uses RAG")
     st.markdown(
-        "Upload one or more PDFs and process them to build a searchable index. "
+        "Upload up to three PDFs at a time and process them to build a "
+        "searchable index. This limit helps keep the retrieved context within "
+        "the language model's context capacity. "
         "For each question, the app retrieves up to four relevant text chunks "
         "from those PDFs and sends them with the question to the configured "
         "language model. The model is instructed to answer from that context "
